@@ -1,0 +1,64 @@
+---
+title: "Lab_2"
+author: "Abhiram M"
+date: "11/08/2021"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+## Library Dplyr
+
+library(dplyr)
+
+```
+
+
+
+```{r}
+
+
+## Load the dataset in R
+
+library(readxl)
+sunflower_india <- read_excel("C:/Users/Lalkumar/Downloads/sunflower_india.xls")
+View(sunflower_india)
+head(sunflower_india)
+```
+
+
+
+```{r}
+
+
+df = tibble(sunflower_india)
+df
+```
+
+
+
+```{r}
+
+
+## Create a new variable column "Production_per_area"
+
+Production_per_area = df$`Production (1000 tonne)`/df$`Area( in 1000hectare)`
+df = cbind(df,Production_per_area)
+df
+```
+
+
+
+```{r}
+
+
+## Filter out seasons with production per area less than 0.5 
+
+df%>%
+  filter(Production_per_area<0.5)
+```
+

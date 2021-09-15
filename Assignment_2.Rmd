@@ -1,0 +1,59 @@
+---
+title: "Assignment_2"
+author: "Azarudheen S"
+date: "05/08/2021"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+## Data Frame with Employee Details
+
+Employee = c("Rick", "Dan", "Michelle", "Ryan", "Gary")
+Salary = c(623.30, 515.20, 611.00, 729.00, 843.25)
+Joining = c(2012, 2013, 2014, 2014, 2015)
+
+df = data.frame(Employee, Salary, Joining)
+df
+
+```
+
+```{r}
+
+## Add a New Member
+
+df = rbind(df, list("Rasmi", 578.00, 2013))
+df
+
+```
+
+```{r}
+## Add a New Variable 'Department'
+
+Department = c("IT", "Operations", "IT", "HR", "Finance", "IT")
+df = data.frame(df,Department)
+df
+```
+
+```{r}
+
+## Applying Conditional Statements
+
+df$Highly_Paid = ifelse(df$Salary>=700.00,1,0)
+df = data.frame(df)
+df
+```
+
+```{r}
+
+## Print Details of Rick & Ryan
+
+details = df[c(1,4),]
+details
+```
+
+

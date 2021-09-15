@@ -1,0 +1,42 @@
+---
+title: "R_MarkDown"
+author: "Azarudheen S"
+date: "03/08/2021"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Assignment R
+
+Names = c("A","B","C","D","E","F","G","H","I","J")  
+Sub1 = c(75,85,65,77,44,67,87,67,67,78)
+Sub2 = c(33,44,55,66,77,88,99,43,54,65)
+Sub3 = c(33,44,22,44,55,76,87,98,90,87)
+Sub4 = c(34,56,78,98,76,54,32,45,67,78)
+Sub5 = c(55,44,55,67,34,56,78,98,09,80)
+
+df = data.frame(Names, Sub1, Sub2, Sub3, Sub4, Sub5)
+df
+
+## Add Two More Students
+
+df = rbind(df, list("K",66,77,88,99,88))
+df = rbind(df, list("L",64,75,87,94,85))
+df
+
+## Find Average
+
+df = cbind(df, Average=(df$Sub1 + df$Sub2 + df$Sub3 + df$Sub4 + df$Sub5)/5)
+df
+
+print(df)
+
+x = df$Average
+df[which(x >80),]
+
+print(df)
+

@@ -1,0 +1,82 @@
+---
+title: "vgSales"
+author: "Abhiram M"
+date: "31/08/2021"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+```{r}
+library(readxl)
+vgsales_1_ <- read_excel("C:/Users/Lalkumar/Downloads/vgsales (1).xls")
+View(vgsales_1_)
+v = vgsales_1_
+v
+
+```
+```{r}
+# Finding Mean 
+mean(v$NA_Sales)
+mean(v$EU_Sales)
+mean(v$JP_Sales)
+mean(v$Other_Sales)
+mean(v$Global_Sales)
+```
+```{r}
+# Finding Standard Deviation
+sd(v$NA_Sales)
+sd(v$EU_Sales)
+sd(v$JP_Sales)
+sd(v$Other_Sales)
+sd(v$Global_Sales)
+```
+```{r}
+# Understanding the DAta Types
+str(vgsales_1_)
+```
+```{r}
+# Creating a Table
+tab = table(v$Genre)
+tab
+```
+
+```{r}
+# Finding Mode Using Sort Function
+sort(tab, decreasing = TRUE)
+```
+```{r}
+# Contigency Table
+cont = table(v$Genre,v$Platform)
+cont
+```
+
+```{r}
+# With Heading
+xtabs(~v$Genre+v$Platform)
+```
+```{r}
+# Propotional Table
+y = prop.table(cont)
+y
+
+# Rounding to 2 figures
+round(y,2)
+```
+```{r}
+# Mosaic Plot
+mosaicplot(cont,color = TRUE, xlab="Genre" , ylab = "Platform")
+```
+
+```{r}
+# Box Plot
+boxplot(v$NA_Sales)
+boxplot(v$EU_Sales)
+boxplot(v$JP_Sales)
+boxplot(v$Other_Sales)
+boxplot(v$Global_Sales)
+```
+

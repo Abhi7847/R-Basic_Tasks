@@ -1,0 +1,44 @@
+---
+title: "Wind Vs Temp"
+author: "Abhiram M"
+date: "30/08/2021"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+## importing ggplot2
+library(ggplot2)
+```
+
+
+```{r}
+# Loading the Data
+
+airquality = as.data.frame(airquality)
+View(airquality)
+```
+
+
+```{r}
+## Plotting the Scatter Plot
+
+
+airq = ggplot(data = airquality, aes(x=Wind, y=Temp, color = Month)) +
+  geom_point(size=3) + geom_smooth() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_rect(fill = "white", color = "black"),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 8)) +
+  xlim(0,25) + 
+  ylim(0,150) +
+  labs(title = " Wind Vs Temperature During Different Months",
+       x = "Wind", y = "Temperature")
+
+airq
+
+```
+
